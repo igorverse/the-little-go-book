@@ -1315,13 +1315,13 @@ A maneira que Go lida com a visibilidade dos tipos é direta e efetiva. Também 
 
 Finalmente, se você é novo em interfaces, pode levar algum tempo até que você se sinta confortável. No entanto, a primeira vez que você ver uma função que espera algo como `io.Reader`, você ficará grato com o autor por não demandar mais do que ele ou ela precisava.
 
-# Chapter 5 - Tidbits
+# Capítulo 5 - Tidbits (Petiscos)
 
-In this chapter, we'll talk about a miscellany of Go's feature which didn't quite fit anywhere else.
+Neste capítulo, vamos conversar sobre um conjunto de recursos em Go que são bem específicos da linguagem.
 
-## Error Handling
+## Tratamento de Erro
 
-Go's preferred way to deal with errors is through return values, not exceptions. Consider the `strconv.Atoi` function which takes a string and tries to convert it to an integer:
+A maneira preferida de Go para lidar com erros é por meio do retorno de valores, não exceções. Considere a função `strconv.Atoi` que pega uma string e tenta convertê-la para um inteiro:
 
 ```go
 package main
@@ -1346,7 +1346,7 @@ func main() {
 }
 ```
 
-You can create your own error type; the only requirement is that it fulfills the contract of the built-in `error` interface, which is:
+Você pode criar o seu próprio tipo de erro; o único requerimento é que ele cumpra o contrato da interface nativa `error`, que é:
 
 ```go
 type error interface {
@@ -1354,7 +1354,7 @@ type error interface {
 }
 ```
 
-More commonly, we can create our own errors by importing the `errors` package and using it in the `New` function:
+Mais comumente, nós podemos criar os nossos próprios erros importando o pacote `errors` e usando na função `New`:
 
 ```go
 import (
@@ -1371,13 +1371,13 @@ func process(count int) error {
 }
 ```
 
-There's a common pattern in Go's standard library of using error variables. For example, the `io` package has an `EOF` variable which is defined as:
+Há um padrão comum na biblioteca nativa do Go que é usar variáveis de erro. Por exemplo, o pacote `io` tem uma variável `EOF` que é definida como:
 
 ```go
 var EOF = errors.New("EOF")
 ```
 
-This is a package variable (it's defined outside of a function) which is publicly accessible (upper-case first letter). Various functions can return this error, say when we're reading from a file or STDIN. If it makes contextual sense, you should use this error, too. As consumers, we can use this singleton:
+Esta é uma variável de pacote (também é definida fora de uma função), que é publicamente acessível (primeira letra é capitalizada). Varias funções podem retornar este erro, por exemplo, quando nós estamos lendo de um arquivo ou STDIN. Se fizer sentido contextual, você deveria usar este erro também. Como consumidor, nós podemos usar este singleton:
 
 ```go
 package main
@@ -1396,7 +1396,7 @@ func main() {
 }
 ```
 
-As a final note, Go does have `panic` and `recover` functions. `panic` is like throwing an exception while `recover` is like `catch`; they are rarely used.
+Como uma nota final, Go tem funções `panic` e `recover`. `panic` é como lançar uma exceção, enquanto `recover` é como `catch`; eles são raramente usados.
 
 ## Defer
 
