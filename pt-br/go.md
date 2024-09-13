@@ -1437,9 +1437,9 @@ go fmt ./...
 
 Experimente. Ele faz mais do que identar o seu código; ele também alinha as declarações dos campos e ordena as importações em ordem alfabética.
 
-## Initialized If
+## If Inicializado
 
-Go supports a slightly modified if-statement, one where a value can be initiated prior to the condition being evaluated:
+Go suporta uma levemente modificada instrução if, na qual um valor pode ser inicializado antes da condição ser avaliada:
 
 ```go
 if x := 10; count > x {
@@ -1447,7 +1447,7 @@ if x := 10; count > x {
 }
 ```
 
-That's a pretty silly example. More realistically, you might do something like:
+Esse é um exemplo muito bobo. Mai realisticamente, você poderia fazer algo como:
 
 ```go
 if err := process(); err != nil {
@@ -1455,7 +1455,7 @@ if err := process(); err != nil {
 }
 ```
 
-Interestingly, while the values aren't available outside the if-statement, they are available inside any `else if` or `else`.
+Interessantemente, enquanto os valores não estão disponívels fora da instrução if, eles ficam disponíveis dentro de qualquer `else if` ou `else`
 
 ## Empty Interface and Conversions
 
