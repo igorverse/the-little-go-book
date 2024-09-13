@@ -1400,7 +1400,7 @@ Como uma nota final, Go tem funções `panic` e `recover`. `panic` é como lanç
 
 ## Defer
 
-Even though Go has a garbage collector, some resources require that we explicitly release them. For example, we need to `Close()` files after we're done with them. This sort of code is always dangerous. For one thing, as we're writing a function, it's easy to forget to `Close` something that we declared 10 lines up. For another, a function might have multiple return points. Go's solution is the `defer` keyword:
+Mesmo que Go tenha um coletor de lixo (garbage collector), alguns recursos requerem que a gente o liberem explicitamente. Por exemplo, nós precisamos usar `Close()` para finalizar os arquivos depois de termos utilzado eles. Esse tipo de código é sempre perigoso. Por exemplo, à medida que escrevemos uma função, é fácil esquecer de usar o `Close()` para fechar algo que declaramos 10 linhas atrás. Outro exemplo é quando uma função tem múltiplos pontos de retorno. A solução do Go é a palavra-chave `defer`
 
 ```go
 package main
@@ -1417,11 +1417,11 @@ func main() {
     return
   }
   defer file.Close()
-  // read the file
+  // leia o arquivo
 }
 ```
 
-If you try to run the above code, you'll probably get an error (the file doesn't exist). The point is to show how `defer` works. Whatever you `defer` will be executed after the enclosing function (in this case `main()`) returns, even if it does so violently. This lets you release resources near where it’s initialized and takes care of multiple return points.
+Se você tentar rodar o código acima, provavelmente você obterá um erro (o arquivo não existe). O ponto é mostrar como `defer` funciona. Tudo aquilo que você usar o `defer` será executado depois do retorno da função (neste caso, `main()`), mesmo que isso seja de forma violenta. Isto permite você liberar recursos perto de onde eles foram inicializados e cuida de pontos de múltiplos retornos.
 
 ## go fmt
 
