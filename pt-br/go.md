@@ -1425,17 +1425,17 @@ Se você tentar rodar o código acima, provavelmente você obterá um erro (o ar
 
 ## go fmt
 
-Most programs written in Go follow the same formatting rules, namely, a tab is used to indent and braces go on the same line as their statement.
+A maioria dos programas escritos em Go seguem a mesma regra de formatação. Por exemplo, um *tab* é usado para identação e colchetes ficam na mesma linha da sua instrução.
 
-I know, you have your own style and you want to stick to it. That's what I did for a long time, but I'm glad I eventually gave in. A big reason for this is the `go fmt` command. It's easy to use and authoritative (so no one argues over meaningless preferences).
+Eu sei... Você deve ter o seu próprio estilo é quer continuar com ele. Isso foi o que eu fiz por um longo período, mas eu estou orgulhoso que eventualmente eu abri mão. Uma grande razão para isso é o comando `go fmt`. É fácil de usar e autoritário (então ninguém pode ficar discutindo sobre preferências sem sentido).
 
-When you're inside a project, you can apply the formatting rule to it and all sub-projects via:
+Quando você está dentro de um projeto você pode applicar a regra de formatação nele e em todos os sub-projetos usando:
 
 ```
 go fmt ./...
 ```
 
-Give it a try. It does more than indent your code; it also aligns field declarations and alphabetically orders imports.
+Experimente. Ele faz mais do que identar o seu código; ele também alinha as declarações dos campos e ordena as importações em ordem alfabética.
 
 ## Initialized If
 
